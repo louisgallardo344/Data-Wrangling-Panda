@@ -1,0 +1,15 @@
+import pandas as pd
+
+dataA= {'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'Math': [80, 95, 79]}
+dataB= {'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'Electronics': [85, 81, 83]}
+dataC= {'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'GEAS': [90, 79, 93]}
+dataD= {'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'BESAT': [93, 89, 88]}
+
+math= pd.DataFrame(dataA, columns= ['Student', 'Math'])
+electronics= pd.DataFrame(dataB, columns= ['Student', 'Electronics'])
+geas= pd.DataFrame(dataC, columns= ['Student', 'GEAS'])
+besat= pd.DataFrame(dataD, columns= ['Student', 'BESAT'])
+
+mer1= pd.merge(math, electronics ,how='right', on='Student')
+mer2= pd.merge(mer1, geas ,how='right', on='Student')
+mer3= pd.merge(mer2, besat ,how='right', on='Student')
