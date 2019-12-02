@@ -4,4 +4,9 @@ data= {'Box': ['Box1', 'Box1', 'Box1', 'Box2','Box2','Box2',],
        'Dimensions': ['Length', 'Width', 'Height', 'Length', 'Width', 'Height',],
        'Value': [6, 4, 2, 5 ,3 ,4]}
 
-box= pd.DataFrame(data, columns= ['Student', 'Dimensions', 'Value'])
+messy = pd.DataFrame(table, columns=['Box', 'Dimension', 'Value'])
+
+tidy_data = messy.pivot_table(index=['Box'], columns = 'Dimension', values = 'Value')
+
+vol = tidy_data.assign(Volume=lambda tidy_data: tidy_data.Length*tidy_data.Height*tidy_data.Width)
+print (vol)
